@@ -1,0 +1,11 @@
+.wrapper {
+	overflow: hidden;
+	margin: 0 auto;
+	background-color: #fff;
+}
+
+.wrapper h1 {
+	text-align: center;
+	color: #000;
+	text-shadow: 5px 5px 5px #000;
+}
