@@ -2,6 +2,9 @@ class User < ApplicationRecord
 
 	has_secure_password
 
+	has_many :posts
+	has_many :languages, through: :posts
+	
 	validates :username, presence: true
 	validates :username, uniqueness: true
 	
