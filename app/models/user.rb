@@ -7,6 +7,7 @@ class User < ApplicationRecord
 	
 	validates :username, presence: true
 	validates :username, uniqueness: true
+	validates :password, length: { minimum: 5 }
 	
 	def slug
 		return self.username.gsub(' ', '-').downcase

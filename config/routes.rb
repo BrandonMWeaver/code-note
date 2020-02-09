@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :languages
   resources :users, only: [:new, :create, :show, :edit, :destroy], param: :slug
   patch "/users/:slug/edit", to: "users#update"
+  put "/users/:slug/edit", to: "users#update"
 end

@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
 	def update
 		@user = current_user
-		if params[:user][:username].present?
+		if params[:user][:username].present? && params[:user][:password].size >= 5
 			@user.update(user_params)
 			redirect_to user_path(@user.slug)
 		else
