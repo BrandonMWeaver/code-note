@@ -13,12 +13,15 @@
 
     <header class="layout-header">
       <h1>Code-Note</h1>
+      <ul>
 	    <% if logged_in? %>
-		    <a href="/signout">Sign Out</a>
+		    <li><a href="/signout">Sign Out</a></li>
 	    <% else %>
-		    <a href="/users/new">Create Account</a>
-		    <a href="/signin">Sign In</a>
+		    <li><a href="/users/new">Create Account</a></li>
+		    <li><a href="/signin">Sign In</a></li>
 	    <% end %>
+      <li><a class="right" href="<%= root_path %>">Home</a></li>
+      </ul>
     </header>
 
     <%= yield %>

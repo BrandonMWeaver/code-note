@@ -1,22 +1,48 @@
 @import "https://fonts.googleapis.com/css?family=Fugaz+One&display=swap";
 
+body {
+	margin: 5px;
+}
+
 .layout-header {
 	overflow: hidden;
-	margin: 0 auto;
 	background-color: #fff;
+	border-bottom: solid #9b9b9b;
 }
 
 .layout-header h1 {
-	margin: 5px auto;
+	margin: 0;
 	text-align: center;
 	font-size: 4em;
 	font-family: "Fugaz One", cursive;
-	color: #000;
-	text-shadow: 2px 2px #fff, 3px 3px #000;
+	color: #9b9b9b;
+	text-shadow: 3px 3px #fff, 4px 4px #000;
 }
 
-.layout-header a {
+.layout-header ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.layout-header ul li {
+	display: inline;
+}
+
+.layout-header ul li a {
 	margin-left: 5px;
+	text-decoration: none;
+	font-family: "Fugaz One", cursive;
+	color: #000;
+}
+
+.layout-header ul li a.right {
+	margin-right: 5px;
+	float: right;
+}
+
+.layout-header ul li a:hover {
+	color: #9b9b9b;
 }
 
 .field_with_errors input {
