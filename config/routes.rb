@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   get "/signout", to: "sessions#destroy"
   resources :posts
   resources :languages
-  resources :users, only: [:new, :create, :show, :edit, :update, :destroy], param: :slug
+  resources :users, only: [:new, :create, :show, :edit, :destroy], param: :slug
+  patch "/users/:slug/edit", to: "users#update"
 end

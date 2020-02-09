@@ -19,11 +19,20 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-
+		@user = User.find_by_slug(params[:slug])
+		unless logged_in? && @user == current_user
+			redirect_to root_path
+		end
 	end
 
 	def update
-
+		@user = current_user
+		if params[:user][:username].present?
+			@user.update(user_params)
+			redirect_to user_path(@user.slug)
+		else
+			render :edit
+		end
 	end
 
 	def destroy

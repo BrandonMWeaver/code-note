@@ -16,6 +16,7 @@
       <ul>
 	    <% if logged_in? %>
 		    <li><a href="/signout">Sign Out</a></li>
+        <li><a class="right" href="<%= edit_user_path(current_user.slug) %>">Edit Account</a></li>
 	    <% else %>
 		    <li><a href="/users/new">Create Account</a></li>
 		    <li><a href="/signin">Sign In</a></li>
