@@ -1,0 +1,20 @@
+@import "https://fonts.googleapis.com/css?family=Fugaz+One&display=swap";
+
+.layout-header {
+	overflow: hidden;
+	margin: 0 auto;
+	background-color: #fff;
+}
+
+.layout-header h1 {
+	margin: 5px auto;
+	text-align: center;
+	font-size: 4em;
+	font-family: "Fugaz One", cursive;
+	color: #000;
+	text-shadow: 2px 2px #fff, 3px 3px #000;
+}
+
+.layout-header a {
+	margin-left: 5px;
+}
