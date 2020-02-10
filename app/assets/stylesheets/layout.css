@@ -45,6 +45,25 @@ body {
 	color: #9b9b9b;
 }
 
+.input-wrapper {
+	display: block;
+	clear: both;
+	margin-top: 10px;
+}
+
+.input-wrapper + br {
+	display: none;
+}
+
+label {
+	font-family: "Orbitron", sans-serif;
+}
+
+input[type="submit"] {
+	margin-top: 10px;
+	background-color: #fff;
+}
+
 .field_with_errors {
 	display: block;
 	clear: both;
@@ -55,7 +74,7 @@ body {
 }
 
 .field_with_errors input {
-	border: 1px solid #ff0000;
+	border-color: #ff0000;
 }
 
 .field_with_errors label {

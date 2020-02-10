@@ -1,4 +1,16 @@
-<%= form_for @user do |f| %>
+<%= form_for @user, url: new_user_path do |f| %>
+	<div class="input-wrapper">
+		<% if @user.errors[:username].any? %>
+			<% @user.errors[:username].each do |message| %>
+				<%= f.label :username, "Username -> #{message}" %>
+			<% end %>
+		<% else %>
+			<%= f.label :username %>
+		<% end %>
+		<br>
+		<%= f.text_field :username %>
+	</div>
+	<br>
 	<%= render "form", { f: f } %>
 	<br>
 	<%= f.submit "Create Account" %>

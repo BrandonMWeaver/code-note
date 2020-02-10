@@ -5,10 +5,10 @@ class User < ApplicationRecord
 	has_many :posts
 	has_many :languages, through: :posts
 	
-	validates :username, presence: true
+	validates :username, length: { minimum: 3 }
 	validates :username, uniqueness: true
 	validates :password, length: { minimum: 5 }
-	
+
 	def slug
 		return self.username.gsub(' ', '-').downcase
 	end

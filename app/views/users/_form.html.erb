@@ -1,29 +1,23 @@
-<% if @user.errors[:username].any? %>
-	<% @user.errors[:username].each do |message| %>
-		<%= f.label :username, "Username #{message}" %>
+<div class="input-wrapper">
+	<% if @user.errors[:password].any? %>
+		<% @user.errors[:password].each do |message| %>
+			<%= f.label :password, "Password -> #{message}" %>
+		<% end %>
+	<% else %>
+		<%= f.label :password %>
 	<% end %>
-<% else %>
-	<%= f.label :username %>
-<% end %>
+	<br>
+	<%= f.password_field :password %>
+</div>
 <br>
-<%= f.text_field :username %>
-<br>
-<% if @user.errors[:password].any? %>
-	<% @user.errors[:password].each do |message| %>
-		<%= f.label :password, "Password #{message}" %>
+<div class="input-wrapper">
+	<% if @user.errors[:password_confirmation].any? %>
+		<% @user.errors[:password_confirmation].each do |message| %>
+			<%= f.label :password_confirmation, "Password confirmation -> #{message}" %>
+		<% end %>
+	<% else %>
+		<%= f.label :password_confirmation %>
 	<% end %>
-<% else %>
-	<%= f.label :password %>
-<% end %>
-<br>
-<%= f.password_field :password %>
-<br>
-<% if @user.errors[:password_confirmation].any? %>
-	<% @user.errors[:password_confirmation].each do |message| %>
-		<%= f.label :password_confirmation, "Password confirmation #{message}" %>
-	<% end %>
-<% else %>
-	<%= f.label :password_confirmation %>
-<% end %>
-<br>
-<%= f.password_field :password_confirmation %>
+	<br>
+	<%= f.password_field :password_confirmation %>
+</div>
