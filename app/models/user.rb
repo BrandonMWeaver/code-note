@@ -5,6 +5,8 @@ class User < ApplicationRecord
 	has_many :posts
 	has_many :languages, through: :posts
 	
+	validates_with SlugValidator
+	
 	validates :username, length: { minimum: 3 }
 	validates :username, uniqueness: true
 	validates :password, length: { minimum: 5 }
