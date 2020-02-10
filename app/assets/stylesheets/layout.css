@@ -45,6 +45,19 @@ body {
 	color: #9b9b9b;
 }
 
+.field_with_errors {
+	display: block;
+	clear: both;
+}
+
+.field_with_errors + br {
+	display: none;
+}
+
 .field_with_errors input {
-	border: solid #ff0000;
+	border: 1px solid #ff0000;
+}
+
+.field_with_errors label {
+	color: #ff0000;
 }
