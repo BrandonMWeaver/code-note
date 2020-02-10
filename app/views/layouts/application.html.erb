@@ -15,13 +15,13 @@
       <h1>Code-Note</h1>
       <ul>
 	    <% if logged_in? %>
-		    <li><a href="/signout">Sign Out</a></li>
-        <li><a class="right" href="<%= edit_user_path(current_user.slug) %>">Edit Account</a></li>
+		    <li><%= link_to "Sign Out", signout_path %></li>
+        <li><%= link_to "Edit Account", edit_user_path(current_user.slug), class: "right" %></li>
 	    <% else %>
-		    <li><a href="/users/new">Create Account</a></li>
-		    <li><a href="/signin">Sign In</a></li>
+		    <li><%= link_to "Create Account", new_user_path %></li>
+		    <li><%= link_to "Sign In", signin_path %></li>
 	    <% end %>
-      <li><a class="right" href="<%= root_path %>">Home</a></li>
+      <li><%= link_to "Home", root_path, class: "right" %></li>
       </ul>
     </header>
 
