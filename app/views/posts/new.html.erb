@@ -1,0 +1,6 @@
+<%= form_for @post, url: new_users_post_path(@post.user.slug) do |f| %>
+	<%= hidden_field_tag :user_id %>
+	<%= render "form", { f: f } %>
+	<br>
+	<%= f.submit %>
+<% end %>

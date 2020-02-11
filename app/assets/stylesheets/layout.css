@@ -5,6 +5,7 @@ body {
 	margin: 10px;
 }
 
+/*header styles*/
 .layout-header {
 	overflow: hidden;
 	border-bottom: solid #9b9b9b;
@@ -45,6 +46,7 @@ body {
 	color: #9b9b9b;
 }
 
+/*form styles*/
 .input-wrapper {
 	display: block;
 	clear: both;
@@ -79,4 +81,14 @@ input[type="submit"] {
 
 .field_with_errors label {
 	color: #ff0000;
+}
+
+/*display styles*/
+.display-wrapper {
+	margin-top: 5px;
+	border: 1px solid #0000ff;
+}
+
+.display-wrapper p {
+	margin-left: 5px;
 }

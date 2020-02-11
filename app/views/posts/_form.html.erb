@@ -1,0 +1,47 @@
+<div class="input-wrapper">
+	<% if @post.errors[:language].any? %>
+		<% @post.errors[:language].each do |message| %>
+			<%= f.label :language, "Language -> #{message}" %>
+		<% end %>
+	<% else %>
+		<%= f.label :language %>
+	<% end %>
+	<br>
+	<%= collection_select :post, :language_id, Language.all, :id, :name %>
+</div>
+<br>
+<div class="input-wrapper">
+	<% if @post.errors[:title].any? %>
+		<% @post.errors[:title].each do |message| %>
+			<%= f.label :title, "Title -> #{message}" %>
+		<% end %>
+	<% else %>
+		<%= f.label :title %>
+	<% end %>
+	<br>
+	<%= f.text_field :title %>
+</div>
+<br>
+<div class="input-wrapper">
+	<% if @post.errors[:content].any? %>
+		<% @post.errors[:content].each do |message| %>
+			<%= f.label :content, "Content -> #{message}" %>
+		<% end %>
+	<% else %>
+		<%= f.label :content %>
+	<% end %>
+	<br>
+	<%= f.text_area :content %>
+</div>
+<br>
+<div class="input-wrapper">
+	<% if @post.errors[:description].any? %>
+		<% @post.errors[:description].each do |message| %>
+			<%= f.label :description, "Description -> #{message}" %>
+		<% end %>
+	<% else %>
+		<%= f.label :description %>
+	<% end %>
+	<br>
+	<%= f.text_area :description %>
+</div>
