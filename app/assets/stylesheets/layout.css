@@ -85,10 +85,26 @@ input[type="submit"] {
 
 /*display styles*/
 .display-wrapper {
-	margin-top: 5px;
-	border: 1px solid #0000ff;
+	margin-top: 10px;
+	border: 1px solid #000;
+	background-color: rgb(255, 255, 155);
 }
 
 .display-wrapper p {
-	margin-left: 5px;
+	margin: 0 5px;
+	font-family: "Orbitron", sans-serif;
+	border-bottom: 1px solid #9b9b9b;
+}
+
+.display-wrapper p:last-child {
+	border: none;
+}
+
+.display-wrapper p.content {
+	font-family: monospace;
+	color: #0000ff;
+}
+
+.display-wrapper p.description {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
