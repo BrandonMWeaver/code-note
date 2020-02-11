@@ -1,8 +1,16 @@
 <div class="user-display-wrapper">
 	<h1><%= @user.username %></h1>
-	<%= link_to "#{@user.username}'s Posts", users_posts_path(@user.slug) %>
+	<% if logged_in? && @user == current_user %>
+		<%= link_to "Your Posts", users_posts_path(@user.slug) %>
+		<br>
+		<%= link_to "Create Post", new_users_post_path(@user.slug) %>
+	<% else %>
+		<%= link_to "#{@user.username}'s Posts", users_posts_path(@user.slug) %>
+	<% end %>
+</div>
+<div class="languages">
 	<% @user.languages.each do |language| %>
-		<%= link_to language.name, root_path, class: "language" %>
+		<%= link_to language.name, root_path %>
 		<% unless language == @user.languages.last %>
 			<br>
 		<% end %>
