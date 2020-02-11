@@ -1,6 +1,12 @@
 <% @posts.each do |post| %>
 	<div class="post-display-wrapper">
-		<p><%= post.language.name %> - <%= post.title %></p>
+		<p><%= post.language.name %> - <%= post.title %>
+			<% if logged_in? && post.user == current_user %>
+				<%= link_to "Edit", edit_users_post_path(post.user.slug, post) %>
+			<% else %>
+				<%= link_to post.user.username, user_path(post.user.slug) %>
+			<% end %>
+		</p>
 		<pre class="content"><%= post.content %></pre>
 		<pre><%= post.description %></pre>
 	</div>

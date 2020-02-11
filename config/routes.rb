@@ -11,7 +11,12 @@ Rails.application.routes.draw do
   patch "/users/:slug/edit", to: "users#update"
   put "/users/:slug/edit", to: "users#update"
 
+  get "/posts", to: "posts#index"
+  
   get "/users/:slug/posts", to: "posts#index", as: "users_posts"
   get "/users/:slug/posts/new", to: "posts#new", as: "new_users_post"
   post "/users/:slug/posts/new", to: "posts#create"
+  get "/users/:slug/posts/:id/edit", to: "posts#edit", as: "edit_users_post"
+  patch "/users/:slug/posts/:id/edit", to: "posts#update"
+  put "/users/:slug/posts/:id/edit", to: "posts#update"
 end

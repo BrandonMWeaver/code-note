@@ -99,27 +99,51 @@ textarea {
 }
 
 /*display styles*/
+p {
+	font-family: "Fugaz One", cursive;
+	border-bottom: 1px solid #9b9b9b;
+}
+
+p a {
+	margin-right: 5px;
+	float: right;
+	text-decoration: none;
+	color: #000;
+}
+
+p a:hover {
+	color: #9b9b9b;
+}
+
+.user-display-wrapper {
+	box-shadow: 3px 3px #9b9b9b;
+}
+
 .user-display-wrapper h1 {
 	margin: 0;
 	font-size: 3em;
 	font-family: "Orbitron", sans-serif;
-	color: #9b9b9b;
-	text-shadow: 2px 2px #fff, 3px 3px #000;
+	color: #fff;
+	text-shadow: 3px 3px #000;
 }
 
 .user-display-wrapper ul {
-	margin: 0;
+	margin: 5px 0 0 0;
 	padding: 0;
 	list-style-type: none;
 }
 
 .user-display-wrapper ul li {
 	display: inline;
+	margin-left: 15px;
+}
+
+.user-display-wrapper ul li:first-child {
+	margin-left: 5px;
 }
 
 .user-display-wrapper ul li p {
 	display: inline;
-	margin-left: 5px;
 	font-family: "Fugaz One", cursive;
 	color: #9b0000;
 }
@@ -147,6 +171,16 @@ textarea {
 	margin: 5px;
 	font-family: "Fugaz One", cursive;
 	border-bottom: 1px solid #9b9b9b;
+}
+
+.post-display-wrapper p a {
+	float: right;
+	text-decoration: none;
+	color: #000;
+}
+
+.post-display-wrapper p a:hover {
+	color: #9b9b9b;
 }
 
 .post-display-wrapper pre {

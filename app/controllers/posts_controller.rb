@@ -3,9 +3,9 @@ class PostsController < ApplicationController
 	def index
 		if params[:slug].present?
 			@user = User.find_by_slug(params[:slug])
-			@posts = @user.posts
+			@posts = @user.posts.reverse
 		else
-			@posts = Post.all
+			@posts = Post.all.reverse
 		end
 	end
 
@@ -23,6 +23,19 @@ class PostsController < ApplicationController
 			redirect_to users_posts_path(@post.user.slug)
 		else
 			render :new
+		end
+	end
+
+	def edit
+		@post = Post.find_by_id(params[:id])
+	end
+
+	def update
+		@post = Post.find_by_id(params[:id])
+		if @post.update(post_params)
+			redirect_to users_posts_path(@post.user.slug)
+		else
+			render :edit
 		end
 	end
 
