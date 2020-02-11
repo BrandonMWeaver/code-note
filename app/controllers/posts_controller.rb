@@ -28,6 +28,9 @@ class PostsController < ApplicationController
 
 	def edit
 		@post = Post.find_by_id(params[:id])
+		unless logged_in? && @post.user == current_user
+			redirect_to root_path
+		end
 	end
 
 	def update

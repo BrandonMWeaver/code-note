@@ -99,57 +99,34 @@ textarea {
 }
 
 /*display styles*/
-p {
+.home p {
 	font-family: "Fugaz One", cursive;
 	border-bottom: 1px solid #9b9b9b;
 }
 
-p a {
+.home p a {
 	margin-right: 5px;
 	float: right;
 	text-decoration: none;
 	color: #000;
 }
 
-p a:hover {
+.home p a:hover {
 	color: #9b9b9b;
 }
 
 .user-display-wrapper {
-	box-shadow: 3px 3px #9b9b9b;
+	margin-top: 10px;
 }
 
 .user-display-wrapper h1 {
-	margin: 0;
-	font-size: 3em;
+	margin: 10px 0 0 0;
 	font-family: "Orbitron", sans-serif;
-	color: #fff;
-	text-shadow: 3px 3px #000;
-}
-
-.user-display-wrapper ul {
-	margin: 5px 0 0 0;
-	padding: 0;
-	list-style-type: none;
-}
-
-.user-display-wrapper ul li {
-	display: inline;
-	margin-left: 15px;
-}
-
-.user-display-wrapper ul li:first-child {
-	margin-left: 5px;
-}
-
-.user-display-wrapper ul li p {
-	display: inline;
-	font-family: "Fugaz One", cursive;
-	color: #9b0000;
+	color: #0000ff;
+	text-shadow: 2px 2px #000;
 }
 
 .user-display-wrapper a {
-	margin: 0 5px 0 5px;
 	text-decoration: none;
 	font-family: "Fugaz One", cursive;
 	color: #000;
@@ -157,6 +134,12 @@ p a:hover {
 
 .user-display-wrapper a:hover {
 	color: #9b9b9b;
+}
+
+.user-display-wrapper a.language {
+	float: right;
+	margin-right: 5px;
+	font-family: "Orbitron", sans-serif;
 }
 
 .post-display-wrapper {
