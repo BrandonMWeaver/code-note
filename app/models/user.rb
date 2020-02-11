@@ -3,7 +3,7 @@ class User < ApplicationRecord
 	has_secure_password
 
 	has_many :posts
-	has_many :languages, through: :posts
+	has_many :languages, -> { distinct }, through: :posts
 	
 	validates_with SlugValidator
 	

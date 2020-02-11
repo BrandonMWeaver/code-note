@@ -1,1 +1,9 @@
-<h1><%= @user.username %></h1>
+<div class="user-display-wrapper">
+	<h1><%= @user.username %></h1>
+	<ul>
+	<% @user.languages.each do |language| %>
+		<li><p><%= language.name %></p></li>
+	<% end %>
+	</ul>
+	<%= link_to "View Posts", users_posts_path(@user.slug) %>
+</div>
