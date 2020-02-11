@@ -19,7 +19,9 @@ class PostsController < ApplicationController
 	def create
 		@post = Post.new(post_params)
 		@post.user = current_user
-		if @post.save
+		if @post.validate
+			@post.content = params[:post][:content].gsub!("\s", "&nbsp;")
+			@post.save
 			redirect_to users_posts_path(@post.user.slug)
 		else
 			render :new

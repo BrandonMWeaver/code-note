@@ -1,7 +1,7 @@
 <% @posts.each do |post| %>
 	<div class="display-wrapper">
 		<p><%= post.language.name %> - <%= post.title %></p>
-		<p class="content"><%= post.content %></p>
-		<p class="description"><%= post.description %></p>
+		<%= simple_format post.content, class: "content" %>
+		<%= simple_format post.description, class: "description" %>
 	</div>
 <% end %>
