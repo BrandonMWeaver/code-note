@@ -9,6 +9,8 @@ class User < ApplicationRecord
 	
 	validates :username, length: { minimum: 3 }
 	validates :username, uniqueness: true
+	validates :email, presence: true
+	validates :email, uniqueness: true
 	validates :password, length: { minimum: 5 }
 
 	def slug

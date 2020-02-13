@@ -11,6 +11,18 @@
 		<%= f.text_field :username %>
 	</div>
 	<br>
+	<div class="input-wrapper">
+		<% if @user.errors[:email].any? %>
+			<% @user.errors[:email].each do |message| %>
+				<%= f.label :email, "Email -> #{message}" %>
+			<% end %>
+		<% else %>
+			<%= f.label :email %>
+		<% end %>
+		<br>
+		<%= f.text_field :email %>
+	</div>
+	<br>
 	<%= render "form", { f: f } %>
 	<br>
 	<%= f.submit "Create Account" %>
