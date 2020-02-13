@@ -195,16 +195,16 @@ textarea {
 	color: #0000ff;
 }
 
-.remove {
+.bottom-anchor {
 	text-align: center;
 }
 
-.remove a {
+.bottom-anchor a {
 	text-decoration: none;
 	font-family: "Fugaz One", cursive;
 	color: #000;
 }
 
-.remove a:hover {
+.bottom-anchor a:hover {
 	color: #9b9b9b;
 }

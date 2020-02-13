@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get "/signin", to: "sessions#new"
   post "/signin", to: "sessions#create"
+  match "/auth/:provider/callback", to: "sessions#create", via: [:get, :post]
   get "/signout", to: "sessions#destroy"
 
   get "/users/new", to: "users#new", as: "new_user"
