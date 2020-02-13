@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-	before_action :find_user, only: [:show, :edit, :update]
-	
+	before_action :find_user, only: [:show, :edit, :update, :destroy]
+
 	def new
 		@user = User.new
 	end
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		if @user.update(user_params)
+		if @user == current_user && @user.update(user_params)
 			redirect_to user_path(@user.slug)
 		else
 			render :edit
@@ -35,7 +35,14 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
-
+		if @user == current_user
+			session.delete :user_id
+			@user.posts.each do |post|
+				post.delete
+			end
+			@user.delete
+		end
+		redirect_to root_path
 	end
 	
 	private

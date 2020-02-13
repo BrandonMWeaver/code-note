@@ -3,3 +3,6 @@
 	<br>
 	<%= f.submit "Update User" %>
 <% end %>
+<div class="remove">
+	<%= link_to "Delete Account", delete_user_path(@user.slug) %>
+</div>

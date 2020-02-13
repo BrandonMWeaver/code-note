@@ -13,6 +13,7 @@ class PostsController < ApplicationController
 
 	def new
 		@post = Post.new(user_id: User.find_by_slug(params[:slug]).id)
+		Language.populate
 		unless logged_in? && @post.user == current_user
 			redirect_to users_posts_path(@post.user.slug)
 		end

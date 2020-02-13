@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "static#home"
+
   get "/signin", to: "sessions#new"
   post "/signin", to: "sessions#create"
   get "/signout", to: "sessions#destroy"
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   get "/users/:slug/edit", to: "users#edit", as: "edit_user"
   patch "/users/:slug/edit", to: "users#update"
   put "/users/:slug/edit", to: "users#update"
+  get "/users/:slug/delete", to: "users#destroy", as: "delete_user"
 
   get "/posts", to: "posts#index"
   
@@ -19,5 +21,5 @@ Rails.application.routes.draw do
   get "/users/:slug/posts/:id/edit", to: "posts#edit", as: "edit_users_post"
   patch "/users/:slug/posts/:id/edit", to: "posts#update"
   put "/users/:slug/posts/:id/edit", to: "posts#update"
-  get "/users/:slug/posts/:id", to: "posts#destroy", as: "delete_users_post"
+  get "/users/:slug/posts/:id/delete", to: "posts#destroy", as: "delete_users_post"
 end
