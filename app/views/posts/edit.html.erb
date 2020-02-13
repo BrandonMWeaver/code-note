@@ -3,3 +3,6 @@
 	<br>
 	<%= f.submit "Update Post" %>
 <% end %>
+<div class="remove">
+	<%= link_to "Remove Post", delete_users_post_path(@post.user.slug, @post) %>
+</div>

@@ -194,3 +194,17 @@ textarea {
 .post-display-wrapper pre.content {
 	color: #0000ff;
 }
+
+.remove {
+	text-align: center;
+}
+
+.remove a {
+	text-decoration: none;
+	font-family: "Fugaz One", cursive;
+	color: #000;
+}
+
+.remove a:hover {
+	color: #9b9b9b;
+}
