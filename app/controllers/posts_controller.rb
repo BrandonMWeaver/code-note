@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+	before_action :find_post, only: [:edit, :update, :destroy]
+	
 	def index
 		if params[:slug].present?
 			@user = User.find_by_slug(params[:slug])
@@ -19,7 +21,7 @@ class PostsController < ApplicationController
 	def create
 		@post = Post.new(post_params)
 		@post.user = current_user
-		if @post.save
+		if @post.user == current_user && @post.save
 			redirect_to users_posts_path(@post.user.slug)
 		else
 			render :new
@@ -27,15 +29,13 @@ class PostsController < ApplicationController
 	end
 
 	def edit
-		@post = Post.find_by_id(params[:id])
 		unless logged_in? && @post.user == current_user
 			redirect_to root_path
 		end
 	end
 
 	def update
-		@post = Post.find_by_id(params[:id])
-		if @post.update(post_params)
+		if @post.user == current_user && @post.update(post_params)
 			redirect_to users_posts_path(@post.user.slug)
 		else
 			render :edit
@@ -43,9 +43,9 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
-		@post = Post.find_by_id(params[:id])
-		user = @post.user
-		@post.delete
+		if @post.user == current_user
+			@post.delete
+		end
 		redirect_to user_path(user.slug)
 	end
 

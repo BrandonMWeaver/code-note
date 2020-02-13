@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+	before_action :find_user, only: [:show, :edit, :update]
+	
 	def new
 		@user = User.new
 	end
@@ -15,18 +17,16 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.find_by_slug(params[:slug])
+
 	end
 
 	def edit
-		@user = User.find_by_slug(params[:slug])
 		unless logged_in? && @user == current_user
 			redirect_to root_path
 		end
 	end
 
 	def update
-		@user = current_user
 		if @user.update(user_params)
 			redirect_to user_path(@user.slug)
 		else
