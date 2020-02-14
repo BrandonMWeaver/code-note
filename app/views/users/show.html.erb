@@ -10,7 +10,7 @@
 </div>
 <div class="languages">
 	<% @user.languages.each do |language| %>
-		<%= link_to language.name, root_path %>
+		<%= link_to language.name, users_posts_by_language_path(@user.slug, language.slug) %>
 		<% unless language == @user.languages.last %>
 			<br>
 		<% end %>

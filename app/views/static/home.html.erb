@@ -1,5 +1,7 @@
 <div class="home">
 	<p>Recent Posts<%= link_to "View All", posts_path %></p>
+	<%= link_to "Languages", languages_path %>
+	<br>
 	<% @posts.each do |post| %>
 		<div class="post-display-wrapper">
 			<p><%= post.language.name %> - <%= post.title %>

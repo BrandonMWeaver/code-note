@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root "static#home"
 
+  get "/languages", to: "languages#index"
+
   get "/signin", to: "sessions#new"
   post "/signin", to: "sessions#create"
   match "/auth/:provider/callback", to: "sessions#create", via: [:get, :post]
@@ -15,7 +17,8 @@ Rails.application.routes.draw do
   get "/users/:slug/delete", to: "users#destroy", as: "delete_user"
 
   get "/posts", to: "posts#index"
-  
+  get "/posts/:language_slug", to: "posts#index", as: "posts_by_language"
+
   get "/users/:slug/posts", to: "posts#index", as: "users_posts"
   get "/users/:slug/posts/new", to: "posts#new", as: "new_users_post"
   post "/users/:slug/posts/new", to: "posts#create"
@@ -23,4 +26,6 @@ Rails.application.routes.draw do
   patch "/users/:slug/posts/:id/edit", to: "posts#update"
   put "/users/:slug/posts/:id/edit", to: "posts#update"
   get "/users/:slug/posts/:id/delete", to: "posts#destroy", as: "delete_users_post"
+
+  get "/users/:slug/posts/:language_slug", to: "posts#index", as: "users_posts_by_language"
 end

@@ -1,0 +1,8 @@
+<div class="languages-index">
+	<% @languages.each do |language| %>
+		<p><%= link_to language.name, posts_by_language_path(language.slug) %></p>
+		<% unless language == @languages.last %>
+			<br>
+		<% end %>
+	<% end %>
+</div>

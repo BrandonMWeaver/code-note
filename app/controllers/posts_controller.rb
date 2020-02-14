@@ -5,7 +5,13 @@ class PostsController < ApplicationController
 	def index
 		if params[:slug].present?
 			@user = User.find_by_slug(params[:slug])
-			@posts = @user.posts.reverse
+			if params[:language_slug]
+				@posts = @user.languages.find_by_slug(params[:language_slug]).posts
+			else
+				@posts = @user.posts.reverse
+			end
+		elsif params[:language_slug]
+			@posts = Language.find_by_slug(params[:language_slug]).posts
 		else
 			@posts = Post.all.reverse
 		end
