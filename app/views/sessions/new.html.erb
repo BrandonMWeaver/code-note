@@ -14,3 +14,20 @@
 <div class="bottom-anchor">
 	<%= link_to "Sign In With GitHub", "/auth/github/"%>
 </div>
+<% if @user %>
+	<br>
+	<% if @user.errors[:username].any? %>
+		<% @user.errors[:username].each do |message| %>
+			<p class="error">Username -> <%= message %></p>
+			<p class="error">Please ensure that your GitHub name is publicly available</p>
+			<p class="error">A user may already own an account under your public GitHub name</p>
+		<% end %>
+	<% end %>
+	<br>
+	<% if @user.errors[:email].any? %>
+		<% @user.errors[:email].each do |message| %>
+			<p class="error">Email -> <%= message %></p>
+			<p class="error">Please ensure that your GitHub email address is publicly available</p>
+		<% end %>
+	<% end %>
+<% end %>
