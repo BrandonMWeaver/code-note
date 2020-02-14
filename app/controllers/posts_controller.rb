@@ -3,15 +3,18 @@ class PostsController < ApplicationController
 	before_action :find_post, only: [:edit, :update, :destroy]
 	
 	def index
+		if params[:language_slug].present?
+			language = Language.find_by_slug(params[:language_slug])
+		end
 		if params[:slug].present?
 			@user = User.find_by_slug(params[:slug])
-			if params[:language_slug]
-				@posts = @user.languages.find_by_slug(params[:language_slug]).posts
+			if language
+				@posts = @user.posts.find_by_language(language).reverse
 			else
 				@posts = @user.posts.reverse
 			end
-		elsif params[:language_slug]
-			@posts = Language.find_by_slug(params[:language_slug]).posts
+		elsif language
+			@posts = Post.find_by_language(language).reverse
 		else
 			@posts = Post.all.reverse
 		end
