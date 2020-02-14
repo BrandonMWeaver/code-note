@@ -56,7 +56,7 @@ class PostsController < ApplicationController
 		if @post.user == current_user
 			@post.delete
 		end
-		redirect_to user_path(user.slug)
+		redirect_to user_path(current_user.slug)
 	end
 
 	private
