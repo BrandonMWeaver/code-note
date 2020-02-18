@@ -1,6 +1,11 @@
 <div class="home">
 	<p>Recent Posts<%= link_to "View All", posts_path %></p>
 	<%= link_to "Languages", languages_path %>
+	<%= form_tag posts_path, method: :get do %>
+		<%= label_tag :keyword, "Search" %>
+		<br>
+		<%= text_field_tag :keyword %>
+	<% end %>
 	<br>
 	<% @posts.each do |post| %>
 		<div class="post-display-wrapper">

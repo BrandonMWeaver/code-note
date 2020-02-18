@@ -9,4 +9,8 @@ class Post < ApplicationRecord
 
 	scope :find_by_language, -> language { where("language_id = ?", language.id) }
 	
+	def self.search_for(keyword)
+		Post.where("description LIKE ?", "%#{keyword}%")
+	end
+
 end
